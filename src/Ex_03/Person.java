@@ -12,6 +12,10 @@ public abstract class Person {
         this.email = email;
         this.phone = phone;
     }
+    //Getters
+    public String getName() {
+        return name;
+    }
 
     public abstract void jobTitle();
 
