@@ -17,6 +17,22 @@ public abstract class Person {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public abstract void jobTitle();
 
     public abstract void printTimetable();

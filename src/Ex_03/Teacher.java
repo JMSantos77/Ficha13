@@ -10,7 +10,7 @@ public class Teacher extends Person {
 
     public Teacher(String name, int yearOfBirth, String email, String phone, ArrayList<TrainingArea> trainingArea, int academicLevel) {
         super(name, yearOfBirth, email, phone);
-        this.trainingArea = new ArrayList<>();
+        this.trainingArea = trainingArea;
         this.academicLevel = academicLevel;
     }
     //Getters
@@ -24,5 +24,11 @@ public class Teacher extends Person {
     @Override
     public void printTimetable() {
 
+    }
+
+    public String personDetails() {
+        return super.personDetails() +
+                " | Área de Formação: " + trainingArea +
+                " | Nível Académico: " + academicLevel;
     }
 }

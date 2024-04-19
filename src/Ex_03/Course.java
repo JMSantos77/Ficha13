@@ -9,53 +9,57 @@ import static Ex_03.School.*;
 public class Course {
     private String name;
     private boolean longTerm;
-    private static ArrayList<CourseDiscipline> courseDisciplines;
+    private ArrayList<CourseDiscipline> courseDisciplines;
 
-    public Course(String name, boolean longTerm) {
-        this.name = name;
-        this.longTerm = longTerm;
-        courseDisciplines = new ArrayList<>();
+    //Getters
+    public String getName() {
+        return name;
     }
 
+    public ArrayList<CourseDiscipline> getCourseDisciplines() {
+        return courseDisciplines;
+    }
 
-    public static Course createCourse() {
+    public Course() {
         Scanner input = new Scanner(System.in);
+        System.out.println("** Criação de Novo Curso **");
 
         System.out.print("Insira Nome do curso: ");
-        String name = input.nextLine();
+        this.name = input.nextLine();
 
-        System.out.println("Número de disciplinhas do curso: ");
+        System.out.print("Número de disciplinas do curso: ");
         int nrOfDisciplines = input.nextInt();
 
         System.out.println("Da seguinte lista: ");
         for (Discipline discipline : School.getDisciplines()) {
-            System.out.println("-" + discipline);
+            System.out.println("- " + discipline.getName());
         }
 
         int count = 0;
-        while (count < nrOfDisciplines) {
+        this.courseDisciplines = new ArrayList<>(); //Inicializo aqui o ArrayList para evitar NullPointerException
 
-            System.out.println("Escolha disciplina a adicionar");
+        while (count < nrOfDisciplines) {
+            System.out.print("Escolha disciplina a adicionar: ");
             String disciplineName = input.next();
             Discipline addDiscipline = null;
 
             for (Discipline discipline : School.getDisciplines()) {
-                if (Objects.equals(discipline.getName(), disciplineName)) {
+                if (Objects.equals(discipline.getName().toLowerCase(), disciplineName.toLowerCase())) {
                     addDiscipline = discipline;
                 }
             }
 
             System.out.println("Da seguinte lista: ");
             for (Teacher teachers : School.getTeachers()) {
-                System.out.println("-" + teachers);
+                System.out.println("- " + teachers.getName());
             }
 
-            System.out.println("Escolha Professor para lecionar: ");
+            System.out.print("Escolha Professor para lecionar: ");
             String teacherName = input.next();
             Teacher addTeacher = null;
 
             for (Teacher teachers : School.getTeachers()) {
-                if (Objects.equals(teachers.getName(), teacherName)) {
+                if (Objects.equals(teachers.getName().toLowerCase(), teacherName.toLowerCase())) {
                     addTeacher = teachers;
                 }
             }
@@ -69,16 +73,12 @@ public class Course {
 
         System.out.print("Introduza Duração/Horas do Curso: ");
         int courseDuration = input.nextInt();
-        boolean setBoolean;
+
         if (courseDuration <= 100) {
-            setBoolean = false;
+            this.longTerm = false;
         } else {
-            setBoolean = true;
+            this.longTerm = true;
         }
-
-        return new Course(name, setBoolean);
-
-
     }
 
 

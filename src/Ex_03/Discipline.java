@@ -51,6 +51,5 @@ public class Discipline {
         Discipline newDiscipline = new Discipline(name, area, durationHours);
 
         return newDiscipline;
-
     }
 }
