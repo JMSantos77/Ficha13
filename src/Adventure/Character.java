@@ -56,13 +56,15 @@ public class Character extends Entity {
                     " 🔥✌️\nGanhou um combate contra um " + npc.name +
                     " com o uso da arma " + this.weapon + "!");
 
-            System.out.println("Vida: " + this.life);
-            System.out.println("Força: " + this.strength);
-            System.out.println("Nível: " + this.level);
+            System.out.print("Vida: " + this.life);
+            System.out.print(" | Força: " + this.strength);
+            System.out.println(" | Nível: " + this.level);
             System.out.println("---------------------------------------------------------------------");
 
         } else {
             System.out.println("You loose! 😭");
+            System.out.println("---------------------------------------------------------------------");
+
         }
     }
 }
